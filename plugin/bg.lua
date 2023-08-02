@@ -13,8 +13,9 @@ local update = function()
   local bghex = string.format("#%06x", bg)
   os.execute('printf "\\033]11;' .. bghex .. '\\007" > ' .. tty)
 
-  local fghex = string.format("#%06x", fg)
-  os.execute('printf "\\033]12;' .. fghex .. '\\007" > ' .. tty)
+  -- NOTE: 一般来说不需要设置前景色, 否则容易影响光标颜色
+  --local fghex = string.format("#%06x", fg)
+  --os.execute('printf "\\033]12;' .. fghex .. '\\007" > ' .. tty)
 end
 
 local setup = function()
